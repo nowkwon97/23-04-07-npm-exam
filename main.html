@@ -11,8 +11,14 @@
   
   <script>
     const clock = document.getElementById('clock-screen');
+    // 시계 화면 정중앙에 위치
+    clock.style.width = '100vw';
+    clock.style.height = '100vh';
+    clock.style.display = 'flex';
+    clock.style.justifyContent = 'center';
+    clock.style.alignItems = 'center';
 
-    clock.style.textAlign = 'center';
+    console.dir(clock.style);
 
     function getTime(){
         const time = new Date();
@@ -22,10 +28,11 @@
         const hour = time.getHours();
         const minutes = time.getMinutes();
         const seconds = time.getSeconds();
-        
-        clock.innerHTML = year + '-' + month + '-' + day + '-' + `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`
+        // 시간 앞자리에 0을 추가하고 싶으면 padStart를 써보자.
+        // {String}.padStart(원하는 스트링글자 수, 채워주고 싶은 문자)
+        clock.innerHTML = year + '-' + month + '-' + day + '-' + String(hour).padStart(2, "0") + ":" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
     }
-
+    // 1초마다 갱신되도록 설정
     function init(){
         setInterval(getTime, 1000);
     }
