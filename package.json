@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/nowkwon97/23-04-07-npm-exam/issues"
   },
-  "homepage": "https://github.com/nowkwon97/23-04-07-npm-exam#readme"
+  "homepage": "https://github.com/nowkwon97/23-04-07-npm-exam#readme",
+  "dependencies": {
+    "clock": "^1.0.2"
+  }
 }
