@@ -7,6 +7,29 @@
   <title>Document</title>
 </head>
 <body>
-  <p>test</p>
+  <h1 id="clock-screen"></h1>
+  
+  <script>
+    const clock = document.getElementById('clock-screen');
+
+    clock.style.textAlign = 'center';
+
+    function getTime(){
+        const time = new Date();
+        const year = time.getFullYear();
+        const month = time.getMonth()+1;
+        const day = time.getDay()+2;
+        const hour = time.getHours();
+        const minutes = time.getMinutes();
+        const seconds = time.getSeconds();
+        
+        clock.innerHTML = year + '-' + month + '-' + day + '-' + `${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`
+    }
+
+    function init(){
+        setInterval(getTime, 1000);
+    }
+    init();
+  </script>
 </body>
 </html>
